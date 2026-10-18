@@ -1,0 +1,15 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "Launch 3dStuff",
+			"type": "cppvsdbg",
+			"request": "launch",
+			"program": "${workspaceFolder}/x64/Debug/3dStuff.exe",
+			"cwd": "${workspaceFolder}",
+			"stopAtEntry": false,
+			"console": "integratedTerminal",
+			"preLaunchTask": "Build"
+		}
+	]
+}

@@ -64,3 +64,8 @@ bool Input::AnyKeyReleased()
 
 	return false;
 }
+
+void Input::ToggleWithKey(bool &boolean, int key)
+{
+	if (KeyPressed(key)) boolean = !boolean;
+}

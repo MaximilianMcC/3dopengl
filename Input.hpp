@@ -17,6 +17,8 @@ public:
 	static bool AnyKeyPressed();
 	static bool AnyKeyReleased();
 
+	static void ToggleWithKey(bool& boolean, int key);
+
 	static bool MouseButtonDown(int button) { return buttonsDownCurrently[button]; }
 	static bool MouseClicked(int button) { return buttonsDownCurrently[button] == true && buttonsDownPreviously[button] == false; }
 	static bool MouseReleased(int button) { return buttonsDownCurrently[button] == false && buttonsDownPreviously[button] == true; }

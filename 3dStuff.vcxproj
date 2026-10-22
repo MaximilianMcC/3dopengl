@@ -156,6 +156,7 @@
     <ClCompile Include="Renderable.cpp" />
     <ClCompile Include="ShaderLoader.cpp" />
     <ClCompile Include="shaderOverloads.cpp" />
+    <ClCompile Include="SpinningCamera.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TinyObjLoaderImplementation.cpp" />
     <ClCompile Include="Window.cpp" />
@@ -163,11 +164,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.hpp" />
+    <ClInclude Include="GameObject.hpp" />
     <ClInclude Include="Graphics.hpp" />
     <ClInclude Include="Input.hpp" />
     <ClInclude Include="Model.hpp" />
     <ClInclude Include="Renderable.hpp" />
     <ClInclude Include="ShaderLoader.h" />
+    <ClInclude Include="SpinningCamera.hpp" />
     <ClInclude Include="Texture.hpp" />
     <ClInclude Include="Window.hpp" />
   </ItemGroup>

@@ -28,7 +28,8 @@ int main()
 		Window::Update();
 
 		if (Input::KeyPressed(GLFW_KEY_ESCAPE)) Window::Close();
-		if (Input::KeyPressed(GLFW_KEY_3)) std::cout << "Mouse position:" << Input::GetMouseX() << ", " << Input::GetMouseY() << "\n";
+		if (Input::KeyPressed(GLFW_KEY_1)) Input::SetMouseVisible(!Input::IsMouseVisible());
+		if (Input::KeyPressed(GLFW_KEY_3)) std::cout << "Mouse position: " << Input::GetMouseX() << ", " << Input::GetMouseY() << "\n";
 		scene.Update();
 
 		Graphics::BeginDrawing();

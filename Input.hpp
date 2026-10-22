@@ -29,6 +29,9 @@ public:
 	static float GetMouseY() { return mouseY; }
 	static glm::vec2 GetMousePosition() { return glm::vec2(mouseX, mouseY); }
 
+	static void SetMouseVisible(bool visible);
+	static bool IsMouseVisible() { return mouseCursorVisible; }
+
 private:
 	inline static bool keysDownCurrently[GLFW_KEY_LAST + 1];
 	inline static bool keysDownPreviously[GLFW_KEY_LAST + 1];
@@ -36,8 +39,9 @@ private:
 	inline static bool buttonsDownCurrently[GLFW_MOUSE_BUTTON_LAST + 1];
 	inline static bool buttonsDownPreviously[GLFW_MOUSE_BUTTON_LAST + 1];
 
-	inline static float mouseX;
-	inline static float mouseY;
+	inline static float mouseX = -1.0f;
+	inline static float mouseY = -1.0f;
+	inline static bool mouseCursorVisible = true;
 
 	static void CursorPositionCallback(GLFWwindow* window, double x, double y);
 };

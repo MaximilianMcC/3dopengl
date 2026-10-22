@@ -105,6 +105,13 @@ glm::vec3 Input::GetWasdQeInput()
 	return input;
 }
 
+void Input::SetMouseVisible(bool visible)
+{
+	mouseCursorVisible = visible;
+	int cursorMode = mouseCursorVisible ? GLFW_CURSOR_NORMAL : GLFW_CURSOR_HIDDEN;
+	glfwSetInputMode(Window::GetWindow(), GLFW_CURSOR, cursorMode);
+}
+
 void Input::CursorPositionCallback(GLFWwindow *window, double x, double y)
 {
 	mouseX = (float)x;

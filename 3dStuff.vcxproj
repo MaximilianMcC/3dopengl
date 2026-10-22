@@ -170,6 +170,7 @@
     <ClInclude Include="Input.hpp" />
     <ClInclude Include="Model.hpp" />
     <ClInclude Include="Renderable.hpp" />
+    <ClInclude Include="Scene.hpp" />
     <ClInclude Include="ShaderLoader.h" />
     <ClInclude Include="SpaceShuttle.hpp" />
     <ClInclude Include="SpinningCamera.hpp" />

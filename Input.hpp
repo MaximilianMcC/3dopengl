@@ -18,6 +18,8 @@ public:
 	static bool AnyKeyReleased();
 
 	static void ToggleWithKey(bool& boolean, int key);
+	static glm::vec2 GetWasdInput();
+	static glm::vec3 GetWasdQeInput();
 
 	static bool MouseButtonDown(int button) { return buttonsDownCurrently[button]; }
 	static bool MouseClicked(int button) { return buttonsDownCurrently[button] == true && buttonsDownPreviously[button] == false; }

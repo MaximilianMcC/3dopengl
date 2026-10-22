@@ -20,10 +20,12 @@ private:
 public:
 	static void Init();
 
-	static void BeginDrawing(Camera* camera);
+	static void BeginDrawing();
 	static void EndDrawing();
 
-	static Camera* GetCurrentCamera() { return currentCamera; }
+	static void SetCamera(Camera* newCamera) { currentCamera = newCamera; }
+	static Camera* GetCamera() { return currentCamera; }
+
 	static bool IsCurrentlyDrawing() { return currentlyDrawing; }
 
 	static bool WireframeModeEnabled() { return wireframeModeEnabled; }

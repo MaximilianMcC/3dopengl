@@ -27,12 +27,9 @@ void Graphics::Init()
 	Shaders::LoadDefaultShaders();
 }
 
-void Graphics::BeginDrawing(Camera* camera)
+void Graphics::BeginDrawing()
 {
 	currentlyDrawing = true;
-
-	// Use our camera
-	currentCamera = camera;
 
 	// Clear the screen and depth buffer
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -41,9 +38,6 @@ void Graphics::BeginDrawing(Camera* camera)
 void Graphics::EndDrawing()
 {
 	currentlyDrawing = false;
-
-	// Stop using the camera
-	currentCamera = nullptr;
 
 	// Rotate in our other buffer
 	glfwSwapBuffers(Window::GetWindow());

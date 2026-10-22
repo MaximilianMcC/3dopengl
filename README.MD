@@ -7,6 +7,10 @@ constants = UPPER_SNAKE_CASE
 file names = PascalCase
 This is all the Standard C# naming convention, which Microsoft themself uses in their modern CPP development. The only place where my naming convention breaks is main can't have a capital M at the front but imo that's no different to a library using pascalCase or something yk. Also I did not write the shader loader class so it's different for that reason
 
+I made the space shuttle in blender btw (don't mind the shoddy texturing)
+
+
+You can press R to centre the thing again btw
 
 checklist delete this when submitting
 - [x] load model and texture
@@ -17,4 +21,3 @@ checklist delete this when submitting
 - [ ] wireframe stuff
 
 
-I made the space shuttle in blender btw (don't mind the shoddy texturing)

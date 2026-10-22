@@ -16,6 +16,7 @@ float Camera::AddFov(float newFov)
 void Camera::SetFov(float newFov)
 {
 	// Limit it to something between 0 and 360
+	// TODO: Use the % thing that I forgot the name of 
 	if (newFov < 0) newFov = 0;
 	if (newFov > 360) newFov = 360;
 

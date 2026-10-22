@@ -28,8 +28,11 @@ public:
 	void SetDirection(glm::vec3 newDirection) { direction = newDirection; }
 
 	// TODO: Normalise in the setter
-	glm::vec3 GetUpDirection() { return up; }
 	void SetUpDirection(glm::vec3 newUpDirection) { up = newUpDirection; }
+
+	glm::vec3 GetRight() { return glm::normalize(glm::cross(GetForward(), up)); }
+	glm::vec3 GetUp() { return up; }
+	glm::vec3 GetForward() { return glm::normalize(direction); }
 
 	float GetFov() { return fovDegrees; }
 	float AddFov(float newFov);

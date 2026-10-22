@@ -74,6 +74,37 @@ void Input::ToggleWithKey(bool &boolean, int key)
 	if (KeyPressed(key)) boolean = !boolean;
 }
 
+glm::vec2 Input::GetWasdInput()
+{
+	// Get input
+	glm::vec2 input = glm::vec2(
+		-KeyHeldDown(GLFW_KEY_D) + KeyHeldDown(GLFW_KEY_A),
+		-KeyHeldDown(GLFW_KEY_S) + KeyHeldDown(GLFW_KEY_W)
+	);
+
+	// Normalise
+	if (glm::length(input) > 0) input = glm::normalize(input);
+
+	return input;
+}
+
+glm::vec3 Input::GetWasdQeInput()
+{
+	// Get input
+	// TODO: Don't rewrite
+	glm::vec3 input = glm::vec3(
+		-KeyHeldDown(GLFW_KEY_D) + KeyHeldDown(GLFW_KEY_A),
+		-KeyHeldDown(GLFW_KEY_Q) + KeyHeldDown(GLFW_KEY_E),
+		-KeyHeldDown(GLFW_KEY_S) + KeyHeldDown(GLFW_KEY_W)
+	);
+
+	// Normalise
+	// TODO: Don't rewrite
+	if (glm::length(input) > 0) input = glm::normalize(input);
+
+	return input;
+}
+
 void Input::CursorPositionCallback(GLFWwindow *window, double x, double y)
 {
 	mouseX = (float)x;

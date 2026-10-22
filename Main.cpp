@@ -10,7 +10,9 @@
 int main()
 {
 	Window::Init("kia ora", 500);
+
 	Camera mainCamera;
+	Graphics::SetCamera(&mainCamera);
 
 	Scene scene;
 	
@@ -29,8 +31,8 @@ int main()
 		if (Input::KeyPressed(GLFW_KEY_3)) std::cout << "Mouse position:" << Input::GetMouseX() << ", " << Input::GetMouseY() << "\n";
 		scene.Update();
 
-		Graphics::BeginDrawing(&mainCamera);
-		scene.Render();		
+		Graphics::BeginDrawing();
+		scene.Render();
 		Graphics::EndDrawing();
 	}
 	

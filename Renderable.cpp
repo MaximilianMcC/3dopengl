@@ -23,6 +23,6 @@ glm::mat4 Renderable::GetModelMatrix()
 void Renderable::SendMatricesToShader(GLuint shader)
 {
 	Graphics::SetShaderVariable(shader, "ModelMatrix", GetModelMatrix());
-	Graphics::SetShaderVariable(shader, "ViewMatrix", Graphics::GetCurrentCamera()->GetViewMatrix());
-	Graphics::SetShaderVariable(shader, "ProjectionMatrix", Graphics::GetCurrentCamera()->GetProjectionMatrix());
+	Graphics::SetShaderVariable(shader, "ViewMatrix", Graphics::GetCamera()->GetViewMatrix());
+	Graphics::SetShaderVariable(shader, "ProjectionMatrix", Graphics::GetCamera()->GetProjectionMatrix());
 }

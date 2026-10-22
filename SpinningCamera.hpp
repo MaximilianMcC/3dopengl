@@ -26,6 +26,9 @@ public:
 	float GetRotationSpeed() { return rotationSpeed; }
 	void SetRotationSpeed(float newSpeed) { rotationSpeed = newSpeed; }
 
+	bool IsPaused() { return paused; }
+	void SetPaused(bool isPaused) { paused = isPaused; }
+
 	void SetTargetPosition(glm::vec3 newTargetPosition) { targetPosition = newTargetPosition; }
 	glm::vec3 GetTargetPosition() { return targetPosition; }
 

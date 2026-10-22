@@ -12,7 +12,6 @@ void SpinningCamera::Update()
 	rotation = std::fmod(rotation, 360);
 
 	// Translate the camera out along the direction of the rotation
-	// TODO: Don't use negative height? (textures probably upside down)
 	float angle = glm::radians(rotation);
 	glm::vec3 position = targetPosition + glm::vec3(
 		distance * std::cos(angle),

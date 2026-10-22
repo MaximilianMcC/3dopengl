@@ -156,6 +156,7 @@
     <ClCompile Include="Renderable.cpp" />
     <ClCompile Include="ShaderLoader.cpp" />
     <ClCompile Include="shaderOverloads.cpp" />
+    <ClCompile Include="SpaceShuttle.cpp" />
     <ClCompile Include="SpinningCamera.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TinyObjLoaderImplementation.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="Model.hpp" />
     <ClInclude Include="Renderable.hpp" />
     <ClInclude Include="ShaderLoader.h" />
+    <ClInclude Include="SpaceShuttle.hpp" />
     <ClInclude Include="SpinningCamera.hpp" />
     <ClInclude Include="Texture.hpp" />
     <ClInclude Include="Window.hpp" />

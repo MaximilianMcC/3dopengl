@@ -5,27 +5,21 @@
 #include "Input.hpp"
 #include "Model.hpp"
 #include "Texture.hpp"
-#include "SpinningCamera.hpp"
-#include <vector>
-
-#include <tiny_obj_loader.h>
+#include "Scene.hpp"
 
 int main()
 {
 	Window::Init("kia ora", 500);
 	Camera mainCamera;
 
-	std::vector<GameObject*> gameObjects;
-
+	Scene scene;
+	
 	SpinningCamera spinningCamera;
 	spinningCamera.SetCamera(&mainCamera);
-	gameObjects.push_back(&spinningCamera);
-	
+	scene.Add(&spinningCamera);
 
-
-	Model model("./assets/models/cube.obj");
-	Texture texture("./assets/textures/test.png");
-	model.SetTexture(&texture);
+	SpaceShuttle spaceShuttle;
+	scene.Add(&spaceShuttle);
 
 	while (Window::IsRunning())
 	{
@@ -33,19 +27,10 @@ int main()
 
 		if (Input::KeyPressed(GLFW_KEY_ESCAPE)) Window::Close();
 		if (Input::KeyPressed(GLFW_KEY_3)) std::cout << "Mouse position:" << Input::GetMouseX() << ", " << Input::GetMouseY() << "\n";
-		for (size_t i = 0; i < gameObjects.size(); i++)
-		{
-			gameObjects[i]->Update();
-		}
+		scene.Update();
 
-
-		
 		Graphics::BeginDrawing(&mainCamera);
-		for (size_t i = 0; i < gameObjects.size(); i++)
-		{
-			gameObjects[i]->Render();
-		}
-		model.Draw();
+		scene.Render();		
 		Graphics::EndDrawing();
 	}
 	

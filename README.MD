@@ -15,3 +15,6 @@ checklist delete this when submitting
 - [ ] input stuff that uses polling
 - [ ] spinning camera
 - [ ] wireframe stuff
+
+
+I made the space shuttle in blender btw (don't mind the shoddy texturing)

@@ -97,6 +97,9 @@ void Window::Update()
 
 	// Do like non window windodey stuff
 	Input::Capture();
+
+	// Check for wireframe toggle
+	if (Input::KeyPressed(GLFW_KEY_2)) Graphics::SetWireframeModeEnabled(!Graphics::WireframeModeEnabled());
 }
 
 void Window::Close()

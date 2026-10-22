@@ -13,7 +13,9 @@ class Graphics
 {
 private:
 	inline static Camera* currentCamera = nullptr;
+
 	inline static bool currentlyDrawing = false;
+	inline static bool wireframeModeEnabled = false;
 
 public:
 	static void Init();
@@ -23,6 +25,9 @@ public:
 
 	static Camera* GetCurrentCamera() { return currentCamera; }
 	static bool IsCurrentlyDrawing() { return currentlyDrawing; }
+
+	static bool WireframeModeEnabled() { return wireframeModeEnabled; }
+	static void SetWireframeModeEnabled(bool enabled);
 
 	static void SetShaderVariable(GLuint shader, std::string variableName, const glm::mat4 matrix);
 	static void SetShaderVariable(GLuint shader, std::string variableName, const glm::vec3 vector);

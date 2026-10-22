@@ -51,3 +51,10 @@ void Graphics::EndDrawing()
 	// Turn off our previous shader just to be safe
 	glUseProgram(0);
 }
+
+void Graphics::SetWireframeModeEnabled(bool enabled)
+{
+	wireframeModeEnabled = enabled;
+	if (wireframeModeEnabled) glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	else glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+}

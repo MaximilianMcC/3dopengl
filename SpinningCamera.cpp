@@ -16,7 +16,7 @@ void SpinningCamera::Update()
 	float angle = glm::radians(rotation);
 	glm::vec3 position = targetPosition + glm::vec3(
 		distance * std::cos(angle),
-		-height,
+		height,
 		distance * std::sin(angle)
 	);
 

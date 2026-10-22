@@ -13,7 +13,7 @@ private:
 	float fovDegrees = -1.0f;
 	float fovRadians = -1.0f;
 
-	glm::vec3 up = glm::vec3(0.0f, 1.0f, 0.0f);
+	glm::vec3 up = glm::vec3(0.0f, -1.0f, 0.0f);
 
 public:
 	/***********************************************/

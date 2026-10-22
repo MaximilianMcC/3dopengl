@@ -1,5 +1,9 @@
 #include "Graphics.hpp"
 
+// TODO: Put this in its own file like tiny obj loader
+#define STB_IMAGE_IMPLEMENTATION
+#include <stb_image.h>
+
 void Graphics::Init()
 {
 	// Allow depth
@@ -7,10 +11,17 @@ void Graphics::Init()
 	glDepthFunc(GL_LESS);
 
 	// Allow backface culling and set the
-	// winding order to counter clockwise
+	// winding order to counter-clockwise
 	glEnable(GL_CULL_FACE);
 	glCullFace(GL_BACK);
 	glFrontFace(GL_CCW);
+
+	// Don't have textures upside down
+	stbi_set_flip_vertically_on_load(true);
+
+	// Enable transparent textures
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	// Load the default shaders
 	Shaders::LoadDefaultShaders();

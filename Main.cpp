@@ -4,6 +4,7 @@
 #include "Camera.hpp"
 #include "Input.hpp"
 #include "Model.hpp"
+#include "Texture.hpp"
 
 #include <tiny_obj_loader.h>
 
@@ -15,6 +16,8 @@ int main()
 	camera.LookAt(glm::vec3(0.0f, 0.0f, 0.0f));
 
 	Model model("./assets/models/cube.obj");
+	Texture texture("./assets/textures/test.png");
+	model.SetTexture(&texture);
 
 	while (Window::IsRunning())
 	{

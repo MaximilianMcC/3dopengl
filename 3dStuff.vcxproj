@@ -156,6 +156,7 @@
     <ClCompile Include="Renderable.cpp" />
     <ClCompile Include="ShaderLoader.cpp" />
     <ClCompile Include="shaderOverloads.cpp" />
+    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TinyObjLoaderImplementation.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="WindowProperties.cpp" />
@@ -167,6 +168,7 @@
     <ClInclude Include="Model.hpp" />
     <ClInclude Include="Renderable.hpp" />
     <ClInclude Include="ShaderLoader.h" />
+    <ClInclude Include="Texture.hpp" />
     <ClInclude Include="Window.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -100,8 +100,14 @@ Model::Model(std::string path)
 void Model::Draw()
 {
 	// Turn on the shader
-	glUseProgram(Graphics::Shaders::GetBasicShader());
-	SendMatricesToShader(Graphics::Shaders::GetBasicShader());
+	GLuint shader = Graphics::Shaders::GetBasicShader();
+	glUseProgram(shader);
+	SendMatricesToShader(shader);
+
+	// Activate and add the texture
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, texture->GetTexture());
+	Graphics::SetShaderVariable(shader, "Texture0", 0);
 
 	// Draw it
 	glBindVertexArray(vao);

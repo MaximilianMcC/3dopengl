@@ -12,16 +12,31 @@ private:
 	Camera* camera;
 	
 	glm::vec3 targetPosition;
-	const float distance = 5.0f;
-	const float height = 5.0f;
+	float distance = 5.0f;
+	float height = 3.0f;
 
 	float rotation = 0.0f;
-	float rotationSpeed = 50.0f;
+	float rotationSpeed = 35.0f;
 
 	bool paused = false;
 public:
 
 	void SetCamera(Camera* newCamera) { camera = newCamera; }
+
+	float GetRotationSpeed() { return rotationSpeed; }
+	void SetRotationSpeed(float newSpeed) { rotationSpeed = newSpeed; }
+
+	void SetTargetPosition(glm::vec3 newTargetPosition) { targetPosition = newTargetPosition; }
+	glm::vec3 GetTargetPosition() { return targetPosition; }
+
+	void SetDistance(float newDistance, float newHeight)
+	{
+		distance = newDistance;
+		height = newHeight;
+	}
+
+	float getDistance() { return distance; }
+	float getHeight() { return height; }
 
 	void Update() override;
 };

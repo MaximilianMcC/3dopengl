@@ -2,10 +2,6 @@
 
 void SpinningCamera::Update()
 {
-	std::cout << rotation << "\n";
-
-
-
 	// Check for if we'd like to pause or not
 	// TODO: Check this really is tab
 	Input::ToggleWithKey(paused, GLFW_KEY_TAB);
@@ -16,6 +12,7 @@ void SpinningCamera::Update()
 	rotation = std::fmod(rotation, 360);
 
 	// Translate the camera out along the direction of the rotation
+	// TODO: Don't use negative height? (textures probably upside down)
 	float angle = glm::radians(rotation);
 	glm::vec3 position = targetPosition + glm::vec3(
 		distance * std::cos(angle),

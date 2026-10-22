@@ -5,10 +5,11 @@
 #include <glfw3.h>
 #include <gtc/type_ptr.hpp>
 #include "Window.hpp"
-#include "Camera.hpp"
 #include "ShaderLoader.h"
 
-static class Graphics
+class Camera;
+
+class Graphics
 {
 private:
 	inline static Camera* currentCamera = nullptr;
@@ -33,7 +34,7 @@ public:
 	// TODO: Make a custom colour class then this just converts the colour to a vec4 or whatever
 	// static void SetShaderVariable(GLuint shader, std::string variableName, Color color);
 
-	static class Shaders
+	class Shaders
 	{
 	public:
 		static void LoadDefaultShaders();

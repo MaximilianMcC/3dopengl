@@ -156,6 +156,7 @@
     <ClCompile Include="Renderable.cpp" />
     <ClCompile Include="ShaderLoader.cpp" />
     <ClCompile Include="shaderOverloads.cpp" />
+    <ClCompile Include="TinyObjLoaderImplementation.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="WindowProperties.cpp" />
   </ItemGroup>

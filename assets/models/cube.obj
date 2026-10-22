@@ -1,0 +1,36 @@
+# Simple 1m x 1m x 1m cube
+# Units: meters; centered at origin
+mtllib cube.mtl
+o Cube
+v -0.5 -0.5 -0.5
+v  0.5 -0.5 -0.5
+v  0.5  0.5 -0.5
+v -0.5  0.5 -0.5
+v -0.5 -0.5  0.5
+v  0.5 -0.5  0.5
+v  0.5  0.5  0.5
+v -0.5  0.5  0.5
+vt 0.0 0.0
+vt 1.0 0.0
+vt 1.0 1.0
+vt 0.0 1.0
+vn 0 0 1
+vn 0 0 -1
+vn 1 0 0
+vn -1 0 0
+vn 0 1 0
+vn 0 -1 0
+usemtl CubeTexture
+s off
+g front
+f 5/1/1 6/2/1 7/3/1 8/4/1
+g back
+f 2/1/2 1/2/2 4/3/2 3/4/2
+g right
+f 6/1/3 2/2/3 3/3/3 7/4/3
+g left
+f 1/1/4 5/2/4 8/3/4 4/4/4
+g top
+f 8/1/5 7/2/5 3/3/5 4/4/5
+g bottom
+f 1/1/6 2/2/6 6/3/6 5/4/6

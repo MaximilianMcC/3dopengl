@@ -4,6 +4,7 @@
 #include <glm.hpp>
 #include <gtc/matrix_transform.hpp>
 #include "Graphics.hpp"
+#include "Camera.hpp"
 
 class Renderable
 {

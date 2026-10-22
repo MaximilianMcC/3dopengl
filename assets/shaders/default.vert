@@ -11,6 +11,6 @@ out vec2 TextureCoordinates;
 
 void main()
 {
-	gl_position = ProjectionMatrix * ViewMatrix * ModelMatrix * vec4(Position, 1.0);
+	gl_Position = ProjectionMatrix * ViewMatrix * ModelMatrix * vec4(Position, 1.0);
 	TextureCoordinates = Uv;
 }

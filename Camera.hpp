@@ -7,7 +7,8 @@
 class Camera
 {
 private:
-	glm::vec3 position = glm::vec3(0.0f);
+	glm::vec3 position = glm::vec3(
+		0.0f);
 	glm::vec3 direction = glm::vec3(0.0f, 0.0f, -1.0f);
 	
 	float fovDegrees = -1.0f;
@@ -25,7 +26,7 @@ public:
 	// TODO: Normalise in the setter
 	glm::vec3 GetDirection() { return direction; }
 	glm::vec3 AddDirection(glm::vec3 addition) { return direction += addition; }
-	void SetDirection(glm::vec3 newDirection) { position = newDirection; }
+	void SetDirection(glm::vec3 newDirection) { direction = newDirection; }
 
 	// TODO: Normalise in the setter
 	glm::vec3 GetUpDirection() { return up; }

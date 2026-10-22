@@ -1,12 +1,8 @@
-#define TINYOBJECTLOADER_IMPLEMENTATION
-
 #include "Model.hpp"
-#include "Vertex.hpp"
-#include <TINY\tiny_obj_loader.h>
 
 Model::Model(std::string path)
 {
-	std::vector<Vertex> Vertices;
+	std::vector<Vertex> vertices;
 	tinyobj::ObjReaderConfig config;
 	tinyobj::ObjReader reader;
 
@@ -47,11 +43,71 @@ Model::Model(std::string path)
 			size_t verticesInFace = (size_t)(shapes[shapeIndex].mesh.num_face_vertices[faceIndex]);
 			for (size_t vertexIndex = 0; vertexIndex < verticesInFace; vertexIndex++)
 			{
-				Vertex currentVertex;
-
+				// Convert the tiny obj vertex to our own one
 				tinyobj::index_t tinyObjVertex = shapes[shapeIndex].mesh.indices[index + vertexIndex];
+				Vertex currentVertex(attributes, tinyObjVertex);
+
+				// Add it to the model
+				vertices.push_back(currentVertex);
 			}
 			
+			// Move over to the next one
+			index += verticesInFace;
 		}
-	}	
+	}
+
+	// Drawing settings
+	drawCount = (GLuint)vertices.size();
+
+	// Make the vertex array
+	GLuint vbo;
+	{
+		glGenVertexArrays(1, &vao);
+		glBindVertexArray(vao);
+		glGenBuffers(1, &vbo);
+		glBindBuffer(GL_ARRAY_BUFFER, vbo);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * vertices.size(), vertices.data(), GL_STATIC_DRAW);
+	}
+
+	// Make the vertex attribute things
+	{
+		//? idk how good this whole dynamic thing is but it does make it kinda easier maybe
+		// TODO: Do a thing where you just write in like GenerateAttributes(3, 2, 3);
+		int attributeIndex = 0;
+		int dataIndex = 0;
+		int currentSize = 0;
+
+		// Vertices
+		currentSize = 3;
+		glVertexAttribPointer(attributeIndex, currentSize, GL_FLOAT, GL_FALSE, Vertex::SizeOfNumberOfNumbers(), (GLvoid*)(dataIndex * sizeof(GLfloat)));
+		glEnableVertexAttribArray(attributeIndex++);
+		dataIndex += currentSize;
+
+		// Texture coordinates
+		currentSize = 2;
+		glVertexAttribPointer(attributeIndex, currentSize, GL_FLOAT, GL_FALSE, Vertex::SizeOfNumberOfNumbers(), (GLvoid*)(dataIndex * sizeof(GLfloat)));
+		glEnableVertexAttribArray(attributeIndex++);
+		dataIndex += currentSize;
+
+		// Normals
+		currentSize = 3;
+		glVertexAttribPointer(attributeIndex, currentSize, GL_FLOAT, GL_FALSE, Vertex::SizeOfNumberOfNumbers(), (GLvoid*)(dataIndex * sizeof(GLfloat)));
+		glEnableVertexAttribArray(attributeIndex++);
+		dataIndex += currentSize;
+	}
+}
+
+void Model::Draw()
+{
+	// Turn on the shader
+	glUseProgram(Graphics::Shaders::GetBasicShader());
+	SendMatricesToShader(Graphics::Shaders::GetBasicShader());
+
+	// Draw it
+	glBindVertexArray(vao);
+	glDrawArrays(GL_TRIANGLES, 0, drawCount);
+	glBindVertexArray(0);
+
+	// Disable the shader just to be safe
+	glUseProgram(0);
 }

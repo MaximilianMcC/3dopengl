@@ -11,7 +11,8 @@ int main()
 {
 	Window::Init("kia ora", 500);
 
-	Camera camera(glm::vec3(0.0f, 0.0f, 10.0f));
+	Camera camera(glm::vec3(0.0f, 0.0f, 2.0f));
+	camera.LookAt(glm::vec3(0.0f, 0.0f, 0.0f));
 
 	Model model("./assets/models/cube.obj");
 

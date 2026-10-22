@@ -32,6 +32,7 @@ int main()
 		Window::Update();
 
 		if (Input::KeyPressed(GLFW_KEY_ESCAPE)) Window::Close();
+		if (Input::KeyPressed(GLFW_KEY_3)) std::cout << "Mouse position:" << Input::GetMouseX() << ", " << Input::GetMouseY() << "\n";
 		for (size_t i = 0; i < gameObjects.size(); i++)
 		{
 			gameObjects[i]->Update();

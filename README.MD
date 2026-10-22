@@ -12,4 +12,6 @@ checklist delete this when submitting
 - [x] load model and texture
 - [ ] skybox
 - [ ] model that reflects skybox
-- [ ] input stuff that uses 
+- [ ] input stuff that uses polling
+- [ ] spinning camera
+- [ ] wireframe stuff

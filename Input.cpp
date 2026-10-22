@@ -9,6 +9,9 @@ void Input::Init()
 		keysDownPreviously[i] = 0;
 		keysDownCurrently[i] = 0;
 	}
+
+	// Register the mouse movement callback
+	glfwSetCursorPosCallback(Window::GetWindow(), CursorPositionCallback);
 }
 
 void Input::Capture()
@@ -25,6 +28,7 @@ void Input::Capture()
 	}
 
 	// Loop over every mouse button and capture its current state
+	// TODO: Use callback maybe
 	for (int button = 0; button <= GLFW_MOUSE_BUTTON_LAST; button++)
 	{
 		// First save its old state
@@ -68,4 +72,10 @@ bool Input::AnyKeyReleased()
 void Input::ToggleWithKey(bool &boolean, int key)
 {
 	if (KeyPressed(key)) boolean = !boolean;
+}
+
+void Input::CursorPositionCallback(GLFWwindow *window, double x, double y)
+{
+	mouseX = (float)x;
+	mouseY = (float)y;
 }

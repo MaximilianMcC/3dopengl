@@ -23,10 +23,19 @@ public:
 	static bool MouseClicked(int button) { return buttonsDownCurrently[button] == true && buttonsDownPreviously[button] == false; }
 	static bool MouseReleased(int button) { return buttonsDownCurrently[button] == false && buttonsDownPreviously[button] == true; }
 
+	static float GetMouseX() { return mouseX; }
+	static float GetMouseY() { return mouseY; }
+	static glm::vec2 GetMousePosition() { return glm::vec2(mouseX, mouseY); }
+
 private:
 	inline static bool keysDownCurrently[GLFW_KEY_LAST + 1];
 	inline static bool keysDownPreviously[GLFW_KEY_LAST + 1];
 
 	inline static bool buttonsDownCurrently[GLFW_MOUSE_BUTTON_LAST + 1];
 	inline static bool buttonsDownPreviously[GLFW_MOUSE_BUTTON_LAST + 1];
+
+	inline static float mouseX;
+	inline static float mouseY;
+
+	static void CursorPositionCallback(GLFWwindow* window, double x, double y);
 };

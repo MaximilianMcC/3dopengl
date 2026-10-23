@@ -48,9 +48,11 @@ public:
 
 		static GLuint GetBasicShader();
 		static GLuint GetSingleColorShader();
+		static GLuint GetSkyboxShader();
 
 	private:
 		static inline GLuint basic;
 		static inline GLuint singleColor;
+		static inline GLuint skybox;
 	};
 };

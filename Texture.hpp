@@ -16,8 +16,12 @@ private:
 	int width;
 	int height;
 
+	bool loaded = false;
 public:
+	Texture() { }
 	Texture(std::string filePath);
+
+	bool IsLoaded() { return loaded; }
 
 	void SetWidth(float newWidth) { width = (int)newWidth; }
 	void SetHeight(float newHeight) { height = (int)newHeight; }

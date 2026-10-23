@@ -12,11 +12,11 @@ private:
 	Camera* camera;
 	
 	glm::vec3 targetPosition;
-	float distance = 20.0f;
+	float distance = 50.0f;
 	float height = 3.0f;
 
 	float rotation = 0.0f;
-	float rotationSpeed = 35.0f;
+	float rotationSpeed = 10.0f;
 
 	bool paused = false;
 public:

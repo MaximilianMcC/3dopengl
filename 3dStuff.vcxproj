@@ -156,6 +156,7 @@
     <ClCompile Include="Renderable.cpp" />
     <ClCompile Include="ShaderLoader.cpp" />
     <ClCompile Include="shaderOverloads.cpp" />
+    <ClCompile Include="Skybox.cpp" />
     <ClCompile Include="SpaceShuttle.cpp" />
     <ClCompile Include="SpinningCamera.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="Renderable.hpp" />
     <ClInclude Include="Scene.hpp" />
     <ClInclude Include="ShaderLoader.h" />
+    <ClInclude Include="Skybox.hpp" />
     <ClInclude Include="SpaceShuttle.hpp" />
     <ClInclude Include="SpinningCamera.hpp" />
     <ClInclude Include="Texture.hpp" />

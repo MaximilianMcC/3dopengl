@@ -6,6 +6,7 @@
 #include "Model.hpp"
 #include "Texture.hpp"
 #include "Scene.hpp"
+#include "Skybox.hpp"
 
 int main()
 {
@@ -13,6 +14,8 @@ int main()
 
 	Camera mainCamera;
 	Graphics::SetCamera(&mainCamera);
+
+	Skybox skybox("./assets/textures/Corona");
 
 	Scene scene;
 	
@@ -33,6 +36,7 @@ int main()
 		scene.Update();
 
 		Graphics::BeginDrawing();
+		skybox.Render();
 		scene.Render();
 		Graphics::EndDrawing();
 	}

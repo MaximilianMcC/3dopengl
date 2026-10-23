@@ -24,4 +24,6 @@ Texture::Texture(std::string filePath)
 	// Clean up
 	glBindTexture(GL_TEXTURE_2D, 0);
 	stbi_image_free(data);
+
+	loaded = true;
 }

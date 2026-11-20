@@ -2,6 +2,7 @@
 #include "Window.hpp"
 #include "Graphics.hpp"
 #include "Camera.hpp"
+#include "EditorCamera.hpp"
 #include "Input.hpp"
 #include "Model.hpp"
 #include "Texture.hpp"
@@ -15,13 +16,13 @@ int main()
 	Camera mainCamera;
 	Graphics::SetCamera(&mainCamera);
 
-	Skybox skybox("./assets/textures/Corona");
+	// Skybox skybox("./assets/textures/Corona");
 
 	Scene scene;
 	
-	SpinningCamera spinningCamera;
-	spinningCamera.SetCamera(&mainCamera);
-	scene.Add(&spinningCamera);
+	EditorCamera editorCamera;
+	editorCamera.SetCamera(&mainCamera);
+	scene.Add(&editorCamera);
 
 	SpaceShuttle spaceShuttle;
 	scene.Add(&spaceShuttle);
@@ -29,14 +30,12 @@ int main()
 	while (Window::IsRunning())
 	{
 		Window::Update();
-
 		if (Input::KeyPressed(GLFW_KEY_ESCAPE)) Window::Close();
-		if (Input::KeyPressed(GLFW_KEY_1)) Input::SetMouseVisible(!Input::IsMouseVisible());
-		if (Input::KeyPressed(GLFW_KEY_3)) std::cout << "Mouse position: " << Input::GetMouseX() << ", " << Input::GetMouseY() << "\n";
+		
 		scene.Update();
 
 		Graphics::BeginDrawing();
-		skybox.Render();
+		// skybox.Render();
 		scene.Render();
 		Graphics::EndDrawing();
 	}

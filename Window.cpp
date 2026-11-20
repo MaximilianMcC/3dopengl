@@ -86,6 +86,9 @@ void Window::Update()
 	deltaTime = time - lastFrameTime;
 	lastFrameTime = time;
 
+	// Do like non window windodey stuff
+	Input::Capture();
+
 	// Do window stuff
 	glfwPollEvents();
 
@@ -94,9 +97,6 @@ void Window::Update()
 	{		
 		windowRunning = false;
 	}
-
-	// Do like non window windodey stuff
-	Input::Capture();
 
 	// Check for wireframe toggle
 	if (Input::KeyPressed(GLFW_KEY_2)) Graphics::SetWireframeModeEnabled(!Graphics::WireframeModeEnabled());

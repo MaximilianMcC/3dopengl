@@ -16,6 +16,8 @@ void Input::Init()
 
 void Input::Capture()
 {
+	previousMousePosition = GetMousePosition();
+
 	// Loop over every key and capture its current state
 	//? space is the first key
 	for (int key = GLFW_KEY_SPACE; key <= GLFW_KEY_LAST; key++)
@@ -93,9 +95,9 @@ glm::vec3 Input::GetWasdQeInput()
 	// Get input
 	// TODO: Don't rewrite
 	glm::vec3 input = glm::vec3(
-		-KeyHeldDown(GLFW_KEY_D) + KeyHeldDown(GLFW_KEY_A),
-		-KeyHeldDown(GLFW_KEY_Q) + KeyHeldDown(GLFW_KEY_E),
-		-KeyHeldDown(GLFW_KEY_S) + KeyHeldDown(GLFW_KEY_W)
+		KeyHeldDown(GLFW_KEY_D) + -KeyHeldDown(GLFW_KEY_A),
+		KeyHeldDown(GLFW_KEY_Q) + -KeyHeldDown(GLFW_KEY_E),
+		KeyHeldDown(GLFW_KEY_W) + -KeyHeldDown(GLFW_KEY_S)
 	);
 
 	// Normalise
@@ -110,6 +112,15 @@ void Input::SetMouseVisible(bool visible)
 	mouseCursorVisible = visible;
 	int cursorMode = mouseCursorVisible ? GLFW_CURSOR_NORMAL : GLFW_CURSOR_HIDDEN;
 	glfwSetInputMode(Window::GetWindow(), GLFW_CURSOR, cursorMode);
+}
+
+// This also hides the cursor
+void Input::SetMouseLocked(bool locked)
+{
+	mouseCursorLocked = locked;
+	mouseCursorVisible = !locked;
+	int cursorMode = mouseCursorLocked ? GLFW_CURSOR_DISABLED : GLFW_CURSOR_NORMAL;
+	glfwSetInputMode(Window::GetWindow(), GLFW_CURSOR, cursorMode);	
 }
 
 void Input::CursorPositionCallback(GLFWwindow *window, double x, double y)

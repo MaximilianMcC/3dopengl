@@ -10,6 +10,9 @@ void Graphics::Init()
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LESS);
 
+	// Allow MSAA
+	glEnable(GL_MULTISAMPLE);
+
 	// Allow backface culling and set the
 	// winding order to counter-clockwise
 	glEnable(GL_CULL_FACE);

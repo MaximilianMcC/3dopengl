@@ -15,6 +15,9 @@ void Window::Init(std::string title, int width, int height)
 		// Have the window initially hidden whilst we do setup
 		glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
 
+		// Turn on MSAA
+		glfwWindowHint(GLFW_SAMPLES, 4);
+
 		// Make an 'unpopulated' window
 		//? can't use 0 as a window size
 		window = glfwCreateWindow(1, 1, "LOADING", NULL, NULL);

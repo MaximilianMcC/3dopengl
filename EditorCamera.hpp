@@ -19,9 +19,11 @@ private:
 
 	float sensitivity = 0.2f;
 	float speed = 100.0f;
+	float zoomSpeed = 5.0f;
 
 	void LookAround();
 	void MoveAround();
+	void Zoom();
 
 public:
 	void Start() override;

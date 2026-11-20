@@ -10,13 +10,15 @@ void Input::Init()
 		keysDownCurrently[i] = 0;
 	}
 
-	// Register the mouse movement callback
+	// Register the mouse callbacks
 	glfwSetCursorPosCallback(Window::GetWindow(), CursorPositionCallback);
+	glfwSetScrollCallback(Window::GetWindow(), CursorScrollCallback);
 }
 
 void Input::Capture()
 {
 	previousMousePosition = GetMousePosition();
+	previousScrollOffset = GetScroll();
 
 	// Loop over every key and capture its current state
 	//? space is the first key
@@ -95,7 +97,7 @@ glm::vec3 Input::GetWasdQeInput()
 	// Get input
 	// TODO: Don't rewrite
 	glm::vec3 input = glm::vec3(
-		KeyHeldDown(GLFW_KEY_D) + -KeyHeldDown(GLFW_KEY_A),
+		KeyHeldDown(GLFW_KEY_A) + -KeyHeldDown(GLFW_KEY_D),
 		KeyHeldDown(GLFW_KEY_Q) + -KeyHeldDown(GLFW_KEY_E),
 		KeyHeldDown(GLFW_KEY_W) + -KeyHeldDown(GLFW_KEY_S)
 	);
@@ -127,4 +129,9 @@ void Input::CursorPositionCallback(GLFWwindow *window, double x, double y)
 {
 	mouseX = (float)x;
 	mouseY = (float)y;
+}
+
+void Input::CursorScrollCallback(GLFWwindow *window, double xOffset, double yOffset)
+{
+	scrollOffset += yOffset;
 }

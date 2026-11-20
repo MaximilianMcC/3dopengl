@@ -9,6 +9,7 @@ void EditorCamera::Update()
 {
 	LookAround();
 	MoveAround();
+	Zoom();
 }
 
 void EditorCamera::LookAround()
@@ -44,7 +45,13 @@ void EditorCamera::MoveAround()
 	glm::vec3 right = glm::normalize(glm::cross(forward, camera->GetUp()));
 	
 	// Move
-	glm::vec3 movement = (forward * input.z) + (right * input.x);
+	glm::vec3 movement = (forward * input.z) - (right * input.x);
 	position += movement * speed * Window::GetDeltaTime();
 	camera->SetPosition(position);
+}
+
+void EditorCamera::Zoom()
+{
+	float scroll = Input::GetScrollDelta();
+	if (scroll != 0.0f) camera->AddFov(-scroll * zoomSpeed);
 }

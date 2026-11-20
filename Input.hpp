@@ -36,6 +36,9 @@ public:
 	static void SetMouseLocked(bool locked);
 	static bool IsMouseLocked() { return mouseCursorLocked; }
 
+	static float GetScroll() { return scrollOffset; }
+	static float GetScrollDelta() { return GetScroll() - previousScrollOffset; }
+
 private:
 	inline static bool keysDownCurrently[GLFW_KEY_LAST + 1];
 	inline static bool keysDownPreviously[GLFW_KEY_LAST + 1];
@@ -47,7 +50,11 @@ private:
 	inline static float mouseY = -1.0f;
 	inline static bool mouseCursorVisible = true;
 	inline static bool mouseCursorLocked = false;
+	inline static float scrollOffset;
+
 	inline static glm::vec2 previousMousePosition;
+	inline static float previousScrollOffset;
 
 	static void CursorPositionCallback(GLFWwindow* window, double x, double y);
+	static void CursorScrollCallback(GLFWwindow* window, double xOffset, double yOffset);
 };
